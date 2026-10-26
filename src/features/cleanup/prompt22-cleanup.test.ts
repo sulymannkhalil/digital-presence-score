@@ -149,20 +149,19 @@ describe("Prompt 22 — accurate public claims", () => {
   });
 
   it("primary CTAs point to real destinations", () => {
-    expect(primaryCta.href).toBe("/#contact");
-    expect(primaryCta.label).toBe("Contact");
+    expect(primaryCta.href).toBe("https://calendly.com/baqidigital-info");
+    expect(primaryCta.label).toBe("Book a Strategy Call");
     expect(readyToBuildCta.primaryHref).toBe("/#home");
     expect(readyToBuildCta.primaryLabel).toBe("Get My Free Report Card");
-    expect(mainNav.some((item) => item.href === "/#why-it-matters")).toBe(true);
-    expect(
-      mainNav.findIndex((item) => item.href === "/#why-it-matters"),
-    ).toBeLessThan(
-      mainNav.findIndex((item) => item.href === "/#sample-report"),
+    expect(mainNav.some((item) => item.href === "https://baqidigital.com/about/")).toBe(
+      true,
     );
     expect(mainNav.some((item) => item.label === "Contact")).toBe(false);
+    expect(mainNav.some((item) => item.label === "Contact Us")).toBe(false);
     for (const item of mainNav) {
       expect(item.href).not.toBe("#");
       expect(item.href.length).toBeGreaterThan(0);
+      expect(item.href.startsWith("https://baqidigital.com/")).toBe(true);
     }
     for (const item of footerQuickLinks) {
       expect(item.href).not.toBe("#");

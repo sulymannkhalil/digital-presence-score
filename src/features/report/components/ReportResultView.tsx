@@ -35,6 +35,11 @@ export function ReportResultView({
         description="Your assessment is complete. Explore your digital performance, discover key strengths, and identify opportunities to strengthen your online presence and drive business growth."
         showUrlInput={false}
         showFooterNote={false}
+        contentMaxWidthClassName="max-w-[998px]"
+        headingMaxWidthClassName="max-w-[768px]"
+        descriptionMaxWidthClassName="max-w-[998px]"
+        sectionClassName="h-[496px] w-full max-w-none"
+        containerClassName="h-full max-w-[1440px] justify-center py-0 sm:py-0"
       />
 
       <div className="bg-black">

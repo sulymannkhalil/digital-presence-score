@@ -28,6 +28,11 @@ export default function AuditProgressRoutePage() {
         description="Tell us a little about your business to get a clearer picture of your online presence, identify opportunities for improvement, and receive personalized recommendations to strengthen your digital growth."
         showUrlInput={false}
         showFooterNote={false}
+        contentMaxWidthClassName="max-w-[998px]"
+        headingMaxWidthClassName="max-w-[768px]"
+        descriptionMaxWidthClassName="max-w-[998px]"
+        sectionClassName="h-[496px] w-full max-w-none"
+        containerClassName="h-full max-w-[1440px] justify-center py-0 sm:py-0"
       />
       <Suspense
         fallback={

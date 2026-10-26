@@ -5,7 +5,10 @@ import { SiteFooter } from "@/components/layout/site-footer";
 
 function NavbarFallback() {
   return (
-    <header className="sticky top-0 z-50 h-16 w-full border-b border-border bg-background" />
+    <>
+      <header className="fixed top-0 right-0 left-0 z-50 h-16 w-full border-b border-white/10 bg-[#0F1114] sm:h-20" />
+      <div className="h-16 sm:h-20" aria-hidden="true" />
+    </>
   );
 }
 

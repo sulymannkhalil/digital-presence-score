@@ -1,5 +1,6 @@
 import { ConicBorderPill } from "@/components/shared/conic-border-pill";
 import { Container } from "@/components/ui/container";
+import { cn } from "@/lib/cn";
 
 import { WebsiteUrlInput } from "./WebsiteUrlInput";
 
@@ -16,6 +17,16 @@ export type HeroSectionProps = {
   showFooterNote?: boolean;
   sectionId?: string;
   headingId?: string;
+  /** Max width of the centered hero content column. Defaults to landing width. */
+  contentMaxWidthClassName?: string;
+  /** Max width of the H1. Defaults to landing width. */
+  headingMaxWidthClassName?: string;
+  /** Max width of the description paragraph. Defaults to landing width. */
+  descriptionMaxWidthClassName?: string;
+  /** Extra classes for the outer section (e.g. fixed frame size). */
+  sectionClassName?: string;
+  /** Extra classes for the inner container. */
+  containerClassName?: string;
 };
 
 /**
@@ -29,26 +40,38 @@ export function HeroSection({
   showFooterNote = true,
   sectionId = "home",
   headingId = "hero-heading",
+  contentMaxWidthClassName = "max-w-[845px]",
+  headingMaxWidthClassName = "max-w-[770px]",
+  descriptionMaxWidthClassName = "max-w-[705px]",
+  sectionClassName,
+  containerClassName,
 }: HeroSectionProps = {}) {
   return (
     <section
       id={sectionId}
       aria-labelledby={headingId}
-      className={
-        showUrlInput
-          ? "relative isolate flex min-h-[38.5rem] items-center overflow-hidden bg-[#0F1114] bg-cover bg-center bg-no-repeat sm:min-h-[40rem] lg:min-h-[38.5rem]"
-          : "relative isolate flex items-center overflow-hidden bg-[#0F1114] bg-cover bg-center bg-no-repeat"
-      }
+      className={cn(
+        "relative isolate flex w-full items-center overflow-hidden bg-[#0F1114] bg-cover bg-center bg-no-repeat",
+        showUrlInput ? "h-[616px]" : null,
+        sectionClassName,
+      )}
       style={{ backgroundImage: `url(${HERO_BACKGROUND_URL})` }}
     >
       <Container
-        className={
+        className={cn(
+          "relative z-10 flex h-full w-full flex-col items-center justify-center text-center",
           showUrlInput
-            ? "relative z-10 flex w-full flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-[4.5rem]"
-            : "relative z-10 flex w-full flex-col items-center px-4 py-[72px] text-center sm:px-6"
-        }
+            ? "px-4 py-0 sm:px-6"
+            : "px-4 py-[72px] sm:px-6",
+          containerClassName,
+        )}
       >
-        <div className="flex w-full max-w-[845px] flex-col items-center gap-9">
+        <div
+          className={cn(
+            "flex w-full flex-col items-center gap-9",
+            contentMaxWidthClassName,
+          )}
+        >
           <div className="flex w-full flex-col items-center gap-2">
             <ConicBorderPill labelClassName="px-6 py-2.5 font-title text-[15px] font-medium leading-normal lg:text-[15px]">
               {badgeText}
@@ -56,12 +79,20 @@ export function HeroSection({
 
             <h1
               id={headingId}
-              className="max-w-[770px] font-title text-[2.25rem] leading-[1.15] font-black tracking-[-0.01em] text-white sm:text-5xl lg:text-[4rem]"
+              className={cn(
+                "font-title text-[2.25rem] leading-[1.15] font-black tracking-[-0.01em] text-white sm:text-5xl lg:text-[4rem]",
+                headingMaxWidthClassName,
+              )}
             >
               {heading}
             </h1>
 
-            <p className="mt-0 max-w-[840px] font-heading text-base leading-normal font-medium text-[#9EA5B3]">
+            <p
+              className={cn(
+                "mt-0 font-heading text-base leading-normal font-medium text-[#9EA5B3]",
+                descriptionMaxWidthClassName,
+              )}
+            >
               {description}
             </p>
           </div>
