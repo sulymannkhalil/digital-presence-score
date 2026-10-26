@@ -83,7 +83,7 @@ export function SampleReportCard({
   return (
     <article
       className={cn(
-        "w-full max-w-full min-w-0 overflow-hidden rounded-2xl border border-neutral-400/70 bg-[#1c1c1c] font-title text-white shadow-[0_0_48px_rgba(37,99,235,0.18),0_12px_40px_rgba(0,0,0,0.55)]",
+        "w-full max-w-full min-w-0 overflow-hidden rounded-2xl border border-neutral-400/70 bg-[#1c1c1c] font-title text-white shadow-[0_12px_40px_rgba(0,0,0,0.55)]",
         className,
       )}
       aria-label={

@@ -3,26 +3,164 @@ export type NavItem = {
   href: string;
   /** When true, treated as a landing-page section hash link */
   isSection?: boolean;
+  /** When true, desktop/mobile show a Services or Industries mega menu */
+  hasDropdown?: "services" | "industries";
 };
 
+export type MegaNavItem = {
+  title: string;
+  description: string;
+  href: string;
+  iconSrc: string;
+};
+
+/** Baqi Digital navbar brand. */
+export const navbarBrand = {
+  logoSrc:
+    "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1770301534/Logo_tmop41.svg",
+  logoAlt: "Baqi Digital Logo",
+  href: "https://baqidigital.com/",
+} as const;
+
 /**
- * Primary marketing navigation.
- * Section hrefs target landing anchors for smooth scrolling.
+ * Primary Baqi Digital navigation (absolute baqidigital.com URLs).
  */
 export const mainNav: NavItem[] = [
-  { label: "Home", href: "/", isSection: false },
-  { label: "Process", href: "/#how-it-works", isSection: true },
-  { label: "Criteria", href: "/#what-we-check", isSection: true },
-  { label: "Importance", href: "/#why-it-matters", isSection: true },
-  { label: "Sample Report", href: "/#sample-report", isSection: true },
-  { label: "FAQs", href: "/#faqs", isSection: true },
+  { label: "About", href: "https://baqidigital.com/about/" },
+  {
+    label: "Services",
+    href: "https://baqidigital.com/services/",
+    hasDropdown: "services",
+  },
+  {
+    label: "Industries",
+    href: "https://baqidigital.com/industries/",
+    hasDropdown: "industries",
+  },
+  { label: "Our Process", href: "https://baqidigital.com/our-process/" },
+  { label: "Why Us", href: "https://baqidigital.com/why-us/" },
 ];
 
-/** Top-right navbar button (black) — scrolls to footer contact CTA. */
+/** Sole navbar CTA — opens Calendly in a new tab. No Contact Us. */
 export const primaryCta = {
-  label: "Contact",
-  href: "/#contact",
+  label: "Book a Strategy Call",
+  href: "https://calendly.com/baqidigital-info",
 } as const;
+
+export const servicesDropdownItems: MegaNavItem[] = [
+  {
+    title: "Paid Ads",
+    description:
+      "Meta and Google campaigns focused on high-quality client acquisition.",
+    href: "https://baqidigital.com/services/paid-ads-systems/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566759/Step_Icon-1_ryktwb.svg",
+  },
+  {
+    title: "SEO",
+    description: "Search visibility strategies that drive real business growth.",
+    href: "https://baqidigital.com/services/seo-systems/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566920/Icon-1_xwy0v3.svg",
+  },
+  {
+    title: "Funnels",
+    description: "High-converting landing systems that turn traffic into leads.",
+    href: "https://baqidigital.com/services/funnels-and-landing-pages/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566921/Icon-2_n5wdx9.svg",
+  },
+  {
+    title: "CRM",
+    description:
+      "Automated systems and workflows designed to reduce manual work.",
+    href: "https://baqidigital.com/services/crm-systems-automations/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566922/Icon-3_dij4kd.svg",
+  },
+  {
+    title: "Analytics",
+    description: "Clean data and tracking for clear, confident decisions.",
+    href: "https://baqidigital.com/services/analytics-attribution/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566923/Icon-4_gi2akg.svg",
+  },
+  {
+    title: "Advisory",
+    description: "Strategic marketing guidance for founders seeking clarity.",
+    href: "https://baqidigital.com/services/advisory-services/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566923/Icon-5_qst5nn.svg",
+  },
+  {
+    title: "Additional Capabilities",
+    description:
+      "Complementary capabilities that strengthen and extend core growth systems.",
+    href: "https://baqidigital.com/services/additional-capabilities/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766575406/cog_j17shm.svg",
+  },
+  {
+    title: "Digital Marketing",
+    description:
+      "SEO, Google Ads, Meta Ads, and AI search visibility built to generate qualified leads.",
+    href: "https://baqidigital.com/services/digital-marketing-services/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1785250020/Icon_qkvx5g.svg",
+  },
+];
+
+export const industriesDropdownItems: MegaNavItem[] = [
+  {
+    title: "Legal",
+    description: "Marketing systems for law firms and legal practices.",
+    href: "https://baqidigital.com/industries/legal/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566755/Icon_hh57wa.svg",
+  },
+  {
+    title: "Real Estate",
+    description: "Growth systems for real estate teams and developers.",
+    href: "https://baqidigital.com/industries/real-estate/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566755/Icon-1_ytks2i.svg",
+  },
+  {
+    title: "Beauty & Esthetics",
+    description: "Marketing solutions for beauty and esthetic brands.",
+    href: "https://baqidigital.com/industries/beauty-esthetics/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566755/Icon-2_t73uqh.svg",
+  },
+  {
+    title: "Medical & Wellness",
+    description: "Systems for medical practices and wellness centers.",
+    href: "https://baqidigital.com/industries/medical-wellness/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566754/heart-add_eetjy7.svg",
+  },
+  {
+    title: "Home Services & Trades",
+    description: "Marketing for HVAC, plumbing, electrical, and more.",
+    href: "https://baqidigital.com/industries/home-services-trades/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566755/house-03_l3tlyw.svg",
+  },
+  {
+    title: "Automotive",
+    description: "Growth systems for dealerships and auto businesses.",
+    href: "https://baqidigital.com/industries/automotive/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566752/car-05_pk0qhq.svg",
+  },
+  {
+    title: "E-Commerce",
+    description: "Marketing systems for online stores and brands.",
+    href: "https://baqidigital.com/industries/e-commerce/",
+    iconSrc:
+      "https://res.cloudinary.com/dxxwzp4qs/image/upload/v1766566758/shopping-bag-01_kc2g4p.svg",
+  },
+];
 
 export const footerQuickLinks: NavItem[] = [
   { label: "Home", href: "/" },
